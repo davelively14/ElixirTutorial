@@ -1,3 +1,5 @@
 IO.puts "Hello, World!"
-IO.puts "This is Dave."
-IO.puts "When will all of this be over?"
+
+sum = fn(a,b) -> a + b end
+
+IO.puts sum.(3,4)
