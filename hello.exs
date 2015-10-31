@@ -1,3 +1,5 @@
 IO.puts "Hello, World!"
 
-sum = fn(a,b) -> a + b end
+list_concat = fn([q,p],[x,y]) -> [q,p] ++ [x,y] end
+
+IO.puts (inspect list_concat.([:a,:b],[:c,:d]))
