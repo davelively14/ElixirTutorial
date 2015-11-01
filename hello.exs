@@ -41,13 +41,19 @@ IO.puts (inspect more_buzz.(14))
 IO.puts (inspect more_buzz.(15))
 IO.puts (inspect more_buzz.(16))
 
-IO.puts "From page 39, Exiercise: Functions-4"
+IO.puts "From page 39, Exercise: Functions-4"
 prefix = fn first -> (fn second -> "#{first} #{second}" end) end
 mrs = prefix.("Mrs")
 IO.puts mrs.("Smith")
 IO.puts prefix.("Elixir").("Rocks")
 
-IO.puts "From page 40"
+IO.puts "From page 40 and 42"
 list = [1,3,5,7,9]
-IO.puts (inspect Enum.map list, fn elem -> elem * 2 end)
-IO.puts (inspect Enum.map list, fn elem -> elem * elem end)
+IO.puts (inspect Enum.map list, &(&1 + 1))
+IO.puts (inspect Enum.map list, &(&1 * &1))
+IO.puts (inspect Enum.map list, &(&1 > 6))
+IO.puts (inspect Enum.map list, fn elem -> elem > 6 end)
+
+IO.puts "From page 42, Exercise: Functions-5"
+IO.puts (inspect Enum.map [1,2,3,4], &(&1 + 2))
+Enum.map [1,2,3,4], &IO.inspect(&1)
