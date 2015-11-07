@@ -19,14 +19,12 @@ defmodule Chop do
   end
   def guess(actual, range, attempt) when attempt < actual do
     IO.puts "Higher than #{attempt}."
-    IO.puts (inspect range)
     low .. high = range
     new_range = attempt .. high
     guess(actual, new_range)
   end
   def guess(actual, range, attempt) when attempt > actual do
     IO.puts "Lower than #{attempt}."
-    IO.puts (inspect range)
     low .. high = range
     new_range = low .. attempt
     guess(actual, new_range)
