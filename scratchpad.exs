@@ -1,13 +1,8 @@
 defmodule Example do
-  def func(p1, p2 \\ 123)
-
-  def func(p1, p2) when is_list(p1) do
-    "You said #{p2} with a list"
-  end
-
-  def func(p1, p2) do
-    "You passed in #{p1} and #{p2}"
-  end
+  @attr "one"
+  def first, do: @attr
+  @attr "two"
+  def second, do: @attr
 end
 
 #From page 52, Exercise: ModulesAndFunctions-6
@@ -31,5 +26,16 @@ defmodule Chop do
   end
   def guess(actual, range, attempt) do
     IO.puts "The answer is: #{attempt}"
+  end
+end
+
+#From page 56. Func1 and Func2 do the same thing.
+defmodule ImpEx do
+  def func1 do
+    List.flatten [1,[2,3],4]
+  end
+  def func2 do
+    import List, only: [flatten: 1]
+    flatten [5,[6,7],8]
   end
 end
