@@ -39,3 +39,17 @@ defmodule ImpEx do
     flatten [5,[6,7],8]
   end
 end
+
+#From page 59, Exercise: ModulesAndFunctions-7
+defmodule ModFunc7 do
+  def fl_to_st(number \\ 5.78394) do
+    :io.format("~.3f", [number])
+  end
+  def get_os(value \\ "HOME") do
+    System.get_env(value)
+  end
+  def extension(file_path \\ "intro/scratchpad.exs") do
+    Path.extname(file_path)
+  end
+  def current_dir, do: System.cwd
+end
