@@ -14,17 +14,17 @@ defmodule Chop do
   end
   def guess(actual, range, attempt) when attempt < actual do
     IO.puts "Higher than #{attempt}."
-    low .. high = range
+    _low .. high = range
     new_range = attempt .. high
     guess(actual, new_range)
   end
   def guess(actual, range, attempt) when attempt > actual do
     IO.puts "Lower than #{attempt}."
-    low .. high = range
+    low .. _high = range
     new_range = low .. attempt
     guess(actual, new_range)
   end
-  def guess(actual, range, attempt) do
+  def guess(_actual, _range, attempt) do
     IO.puts "The answer is: #{attempt}"
   end
 end
@@ -52,4 +52,13 @@ defmodule ModFunc7 do
     Path.extname(file_path)
   end
   def current_dir, do: System.cwd
+end
+
+#From page 62. Method to determine length of list.
+defmodule MyList do
+  def len([]), do: 0
+  def len([_head|tail]), do: 1 + len(tail)
+
+  def square([]), do: []
+  def square([head|tail]), do: [head*head|square(tail)]
 end
