@@ -140,3 +140,16 @@ defmodule WeatherHistory do
     ]
   end
 end
+
+# Page 72, Exercise: ListsAndRecursion-4
+defmodule LaR4 do
+  def span(from, to), do: _span(from, to, [])
+
+  # Private methods
+  defp _span(from, to, list)
+    when from <= to,
+    do: _span(from + 1, to, [from | list])
+  defp _span(from, to, list)
+    when from > to,
+    do: list
+end
