@@ -92,3 +92,17 @@ defmodule LaR1 do
   defp _mapsum([], _, total), do: total
   defp _mapsum([head|tail], func, total), do: _mapsum(tail, func, func.(head) + total)
 end
+
+#From page 69, Exercise: ListsAndRecursion-2
+defmodule LaR2 do
+  def maxlist(list), do: _maxlist(list, List.first(list))
+
+  #private methods
+  defp _maxlist([], answer), do: answer
+  defp _maxlist([head|tail], answer) when head > answer do
+    _maxlist(tail, head)
+  end
+  defp _maxlist([head|tail], answer) when head <= answer do
+    _maxlist(tail, answer)
+  end
+end
