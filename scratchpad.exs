@@ -84,4 +84,11 @@ defmodule LaR0 do
   def sum([head|tail]), do: head + sum(tail)
 end
 
-#From page 69
+#From page 69, Exercise: ListsAndRecursion-1
+defmodule LaR1 do
+  def mapsum(list, func), do: _mapsum(list, func, 0)
+
+  #private methods
+  defp _mapsum([], _, total), do: total
+  defp _mapsum([head|tail], func, total), do: _mapsum(tail, func, func.(head) + total)
+end
