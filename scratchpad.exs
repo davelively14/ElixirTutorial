@@ -153,3 +153,65 @@ defmodule LaR4 do
     when from > to,
     do: list
 end
+
+defmodule MyDict do
+  def values(dict) do
+    dict |> Dict.values |> Enum.sum
+  end
+
+  # Test data
+  def people do
+    [
+      %{ name: "Grumpy", height: 1.24 },
+      %{ name: "Dave", height: 1.88 },
+      %{ name: "Dopey", height: 1.32 },
+      %{ name: "Shaquille", height: 2.16 },
+      %{ name: "Sneezy", height: 1.28 }
+    ]
+  end
+
+  def book(%{name: name, height: height})
+    when height > 1.9,
+    do: IO.puts "Need extra long bed for #{name}"
+  def book(%{name: name, height: height})
+    when height < 1.3,
+    do: IO.puts "Need low shower controls for #{name}"
+  def book(person), do: IO.puts "Need regular bed for #{person.name}"
+end
+
+defmodule Subscriber do
+  defstruct name: "", paid: false, over_18: true
+
+  def may_attend_after_party(subscriber = %Subscriber{}) do
+    subscriber.paid && subscriber.over_18
+  end
+
+  def print_vip_badge(%Subscriber{name: name})
+    when name != "",
+    do: IO.puts "Very cheap badge for #{name}"
+
+  def print_vip_badge(%Subscriber{}), do: raise "missing name for badge"
+end
+
+defmodule Attendee do
+  @derive Access
+  defstruct name: "", over_18: false
+end
+
+defmodule Customer do
+  defstruct name: "", company: ""
+end
+
+defmodule BugReport do
+  defstruct owner: %{}, details: "", severity: 1
+end
+
+defmodule Test do
+  def authors do
+    [
+      %{name: "Jose", language: "Elixir"},
+      %{name: "Matz", language: "Ruby"},
+      %{name: "Larry", language: "Perl"}
+    ]
+  end
+end

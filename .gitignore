@@ -3,5 +3,6 @@
 /deps
 erl_crash.dump
 *.ez
+*.beam
 
 # Created by .ignore support plugin (hsz.mobi)
