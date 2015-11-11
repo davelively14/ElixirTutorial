@@ -8,4 +8,6 @@ defmodule Guard do
   def what_is(x) when is_atom(x) do
     IO.puts "#{x} is an atom"
   end
+
+
 end
