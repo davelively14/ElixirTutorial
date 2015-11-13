@@ -238,7 +238,7 @@ defmodule LaR5 do
   end
 end
 
-# Page 93, Exercise: ListsAndRecursion-6 (partial - doesn't work)
+# Page 93, Exercise: ListsAndRecursion-6 (partial - doesn't work yet)
 defmodule LaR6 do
   def flatten(list), do: _flatten(list,[])
 
