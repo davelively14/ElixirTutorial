@@ -214,5 +214,37 @@ defmodule Test do
       %{name: "Larry", language: "Perl"}
     ]
   end
+end
 
+# Page 93, Exercise: ListsAndRecursion-5 (partial)
+defmodule LaR5 do
+  def all(list, func), do: _all(list, func, true)
+
+  def filter(list, func), do: _filter(list, func, [])
+
+
+  # Private methods
+  defp _all(_, _, false), do: false
+  defp _all([], _, true), do: true
+  defp _all([head|tail], func, _), do: _all(tail, func, func.(head))
+
+  defp _filter([], _, list), do: Enum.reverse(list)
+  defp _filter([head|tail], func, list) do
+    if func.(head) do
+      _filter(tail, func, [head|list])
+    else
+      _filter(tail, func, list)
+    end
+  end
+end
+
+# Page 93, Exercise: ListsAndRecursion-6 (partial - doesn't work)
+defmodule LaR6 do
+  def flatten(list), do: _flatten(list,[])
+
+  # Private methods
+  defp _flatten([], result), do: Enum.reverse(result)
+  defp _flatten([head|[]], result), do: [head|result]
+  defp _flatten([head|tail], result), do: _flatten(tail, _flatten(head, result))
+  defp _flatten(head, _), do: head
 end
