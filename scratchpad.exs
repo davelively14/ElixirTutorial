@@ -252,6 +252,8 @@ end
 # Page 97, Stream.unfold
 defmodule Fib do
   def seq(num \\ 15) do
+    # Creates a collection from resulting tupla. { num_added_to_collection,
+    # { tupla_passed_back_to_unfold_function } }
     Stream.unfold({0, 1}, fn {f1, f2} -> {f1, {f2, f1 + f2}} end)
       |> Enum.take(num)
   end
