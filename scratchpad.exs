@@ -238,7 +238,7 @@ defmodule LaR5 do
   end
 end
 
-# Page 93, Exercise: ListsAndRecursion-6 (partial - doesn't work yet)
+# Page 93, Exercise: ListsAndRecursion-6 (partial - probably doesn't need defps?)
 defmodule LaR6 do
   def flatten(list), do: _flatten(list,[])
 
@@ -248,3 +248,4 @@ defmodule LaR6 do
   defp _flatten([head|tail], result), do: _flatten(tail, _flatten(head, result))
   defp _flatten(head, _), do: head
 end
+
