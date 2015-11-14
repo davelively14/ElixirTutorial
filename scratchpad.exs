@@ -249,3 +249,10 @@ defmodule LaR6 do
   defp _flatten(head, _), do: head
 end
 
+# Page 97, Stream.unfold
+defmodule Fib do
+  def seq(num \\ 15) do
+    Stream.unfold({0, 1}, fn {f1, f2} -> {f1, {f2, f1 + f2}} end)
+      |> Enum.take(num)
+  end
+end
