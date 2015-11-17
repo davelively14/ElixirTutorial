@@ -299,3 +299,10 @@ defmodule Comp do
     IO.puts inspect for x <- first8, y <- first8, rem(x*y, 10) == 0, do: {x,y}
   end
 end
+
+defmodule Destruct do
+  def it do
+    reports = [ dallas: :hot, minneapolis: :cold, dc: :muggy, la: :smoggy ]
+    IO.puts inspect for { city, weather} <- reports, do: { weather, city }
+  end
+end
