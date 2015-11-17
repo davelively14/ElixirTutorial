@@ -292,3 +292,10 @@ defmodule Countdown do
   end
 end
 
+# Page 102, Comprehensions
+defmodule Comp do
+  def mod10 do
+    first8 = [1,2,3,4,5,6,7,8]
+    IO.puts inspect for x <- first8, y <- first8, rem(x*y, 10) == 0, do: {x,y}
+  end
+end
