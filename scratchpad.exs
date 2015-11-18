@@ -308,7 +308,8 @@ defmodule Destruct do
 end
 
 defmodule LaR8 do
-  orders = [
+  def it do
+    orders = [
           [ id: 123, ship_to: :NC, net_amount: 100.00 ],
           [ id: 124, ship_to: :OK, net_amount:  35.50 ],
           [ id: 125, ship_to: :TX, net_amount:  24.00 ],
@@ -318,8 +319,7 @@ defmodule LaR8 do
           [ id: 129, ship_to: :CA, net_amount: 102.00 ],
           [ id: 120, ship_to: :NC, net_amount:  50.00 ] ]
 
-  tax_rates = [ NC: 0.075, TX: 0.08]
+    tax_rates = [ NC: 0.075, TX: 0.08]
 
-
-
+    for order <- orders, order[:ship_to] == :NC, do: order end
 end
