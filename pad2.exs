@@ -45,3 +45,8 @@ defmodule Parse do
     raise "Invalid digit '#{[non_digit]}'"
   end
 end
+
+defmodule Phx do
+  def inc(x), do: x + 1
+  def dec(x), do: x - 1
+end
