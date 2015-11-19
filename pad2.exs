@@ -24,3 +24,9 @@ defmodule Sigils do
     IO.puts inspect ~w[the c#{'a'}t sat on the mat]s
   end
 end
+
+defmodule ShowNums do
+  def it(str \\ 'wombat') do
+    :io.format "~w~n", [str]
+  end
+end
