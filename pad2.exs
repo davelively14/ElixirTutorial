@@ -46,3 +46,17 @@ defmodule Parse do
   end
 end
 
+defmodule Dap do
+  def it do
+    String.at("Dog", 2) |> String.capitalize
+  end
+end
+
+# Page 119, Exercise: StringsAndBinaries-5
+defmodule Center do
+
+  def it(strings \\ ["cat", "zebra", "elephant"]) do
+    strings
+  end
+
+end
