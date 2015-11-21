@@ -52,11 +52,38 @@ defmodule Dap do
   end
 end
 
-# Page 119, Exercise: StringsAndBinaries-5
+# Page 119, Exercise: StringsAndBinaries-5 (incomplete)
 defmodule Center do
 
   def it(strings \\ ["cat", "zebra", "elephant"]) do
     strings
   end
+
+end
+
+defmodule Utf8 do
+  def each(str, func) when is_binary(str), do: _each(str, func)
+
+  defp _each(<< head :: utf8, tail :: binary >>, func) do
+    func.(head)
+    _each(tail, func)
+  end
+
+  defp _each(<<>>, _), do: []
+end
+
+# Page 120, Exercise: StringsAndBinaries-6
+defmodule SaB6 do
+
+  def sentence_case(str) when is_binary(str) do
+    String.split(str, ". ")
+      |> cap_it
+      |> IO.puts
+  end
+
+  def cap_it(str), do: _cap_it(str, "")
+
+  defp _cap_it([head|tail], result), do: _cap_it(tail, result <> String.capitalize(head) <> ". ")
+  defp _cap_it([], result), do: result
 
 end
