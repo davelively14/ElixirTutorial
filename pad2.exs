@@ -46,7 +46,3 @@ defmodule Parse do
   end
 end
 
-defmodule Phx do
-  def inc(x), do: x + 1
-  def dec(x), do: x - 1
-end
