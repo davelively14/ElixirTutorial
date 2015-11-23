@@ -59,3 +59,13 @@ defmodule FizzBuzz do
   defp fizzbuzz(n) when rem(n,5) == 0, do: "Buzz"
   defp fizzbuzz(n), do: n
 end
+
+defmodule Bouncer do
+  def check(person \\ %{name: "Dave", age: 27}) do
+    case person do
+      stats = %{age: age} when is_number(age) and age >= 21 -> IO.puts "You are cleared to enter the Foo Bar, #{stats.name}"
+      _ -> IO.puts "Sorry, no admission"
+    end
+  end
+
+end
