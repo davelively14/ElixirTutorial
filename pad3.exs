@@ -60,6 +60,7 @@ defmodule FizzBuzz do
   defp fizzbuzz(n), do: n
 end
 
+
 defmodule Bouncer do
   def check(person \\ %{name: "Dave", age: 27}) do
     case person do
@@ -69,3 +70,18 @@ defmodule Bouncer do
   end
 
 end
+
+# Exercise: ControlFlow-1
+defmodule FbCase do
+  def upto(n) when n >0, do: 1..n |> Enum.map(&fizzbuzz/1)
+
+  def fizzbuzz(n) do
+    case { rem(n, 3), rem(n, 5), n } do
+      { 0, 0, _ } -> "FizzBuzz"
+      { 0, _, _ } -> "Fizz"
+      { _, 0, _ } -> "Buzz"
+      { _, _, x } -> x
+    end
+  end
+end
+
