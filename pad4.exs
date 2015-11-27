@@ -23,3 +23,20 @@ defmodule Chain do
     IO.puts inspect :timer.tc(Chain, :create_processes, [n])
   end
 end
+
+# Exercise: WorkingWithMultipleProcesses-2
+defmodule MultiP1 do
+
+  def run(token1, token2) do
+    pid1 = spawn(MultiP1, :reply, [])
+    pid2 = spawn(MultiP1, :reply, [])
+    send pid1, token1
+    send pid2, token2
+  end
+
+  def reply do
+    receive do
+      {sender, token} -> send sender, token
+    end
+  end
+end
