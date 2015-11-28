@@ -40,3 +40,25 @@ defmodule MultiP1 do
     end
   end
 end
+
+#Exercise: WorkingWithMultipleProcesses-3
+defmodule MultiP3 do
+  def end_quick(sender) do
+    send sender, "Just a test"
+    exit :boom
+  end
+
+  def listen_to do
+    receive do
+      msg -> IO.puts "Message received: #{inspect msg}"
+      listen_to
+    after 1000 -> IO.puts "No more messages"
+    end
+  end
+
+  def run do
+    spawn_link(MultiP3, :end_quick, [self])
+    :timer.sleep(500)
+    listen_to
+  end
+end
