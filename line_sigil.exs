@@ -19,6 +19,7 @@ defmodule LineSigil do
   end
 end
 
+
 defmodule Example do
   import LineSigil
 
